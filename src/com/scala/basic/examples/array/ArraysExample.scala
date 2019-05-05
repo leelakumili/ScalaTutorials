@@ -1,3 +1,5 @@
+package com.scala.basic.examples.array
+
 object ArraysExample {
 
   def main(args: Array[String]): Unit = {

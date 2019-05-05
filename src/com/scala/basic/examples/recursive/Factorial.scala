@@ -1,3 +1,5 @@
+package com.scala.basic.examples.recursive
+
 object Factorial {
 
   def main(args: Array[String]): Unit = {

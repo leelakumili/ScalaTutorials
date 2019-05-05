@@ -1,3 +1,5 @@
+package com.scala.basic.examples.list
+
 object ListExample {
 
   def main(args: Array[String]): Unit = {
