@@ -1,8 +1,19 @@
 package com.scala.basic.examples.string
 
+import com.scala.basic.examples.string.StringUtils._
 object RegularExpressionExamples {
 
+  case class RequestValues(name: String, dept: String)
 
+  def extractEmployeeAttributes(data: String): Option[RequestValues] = {
+    val r = "([A-Za-z]+) ([A-Za-z]{2})".r
+
+    data match {
+      case r(name,dept) =>
+        Some (RequestValues(name,dept))
+      case _ => None
+    }
+  }
   def main(args: Array[String]): Unit = {
      val pattern = "[0-9]*".r
      val string = "201 Utah S ave , 95035"
@@ -15,14 +26,10 @@ object RegularExpressionExamples {
     println("replace all example ")
     string.replaceAll("[0-9]","#").foreach(print)
     println("\n replace all example using regex"); "[0-9]".r.replaceAllIn(string,"x").foreach(print)
+    println(extractEmployeeAttributes("Leela IT").get.name)
 
-
-    val empPattern = "([A-Za-z]+) ([A-Za-z]{2})".r
-
-    val empPattern(name,dept)= "Leela IT"
-
-    empPattern.findAllIn("Leela IT").foreach(print)
-
-
+    //Own String methods
+    println("STARAvenue".isPrefix)
+    println("STAvenue".isPrefix)
 
 }}
